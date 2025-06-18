@@ -1,0 +1,7 @@
+{
+  "name": "krebeks",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
