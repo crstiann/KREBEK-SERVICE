@@ -1,17 +1,67 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar color="dark">
+    <ion-title class="brand-title">🔧 KREBEK SERVICE</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card class="hero-card center-logo-card">
+    <div class="logo-wrapper">
+      <img src="assets/icon/krebeks.jpeg" alt="hero" class="logo-image" />
+    </div>
+    <ion-card-header>
+      <ion-card-title class="gold-text">Servis Motor Premium</ion-card-title>
+      <ion-card-subtitle>Booking online tanpa antre</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- 5 Pilihan Servis -->
+  <ion-grid class="service-grid">
+    <ion-row>
+      <ion-col size="6" size-md="4" size-lg="2.4">
+        <ion-card class="service-card" (click)="goToBooking('Tune Up')">
+          <ion-icon name="construct-outline" class="service-icon"></ion-icon>
+          <p>Tune Up</p>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="4" size-lg="2.4">
+        <ion-card class="service-card" (click)="goToBooking('Ganti Oli')">
+          <ion-icon name="water-outline" class="service-icon"></ion-icon>
+          <p>Ganti Oli</p>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="4" size-lg="2.4">
+        <ion-card class="service-card" (click)="goToBooking('Aki & Kelistrikan')">
+          <ion-icon name="flash-outline" class="service-icon"></ion-icon>
+          <p>Aki & Kelistrikan</p>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="4" size-lg="2.4">
+        <ion-card class="service-card" (click)="goToBooking('Servis CVT')">
+          <ion-icon name="build-outline" class="service-icon"></ion-icon>
+          <p>Servis CVT</p>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="4" size-lg="2.4">
+        <ion-card class="service-card" (click)="goToBooking('Ban')">
+          <ion-icon name="bicycle-outline" class="service-icon"></ion-icon>
+          <p>Ban</p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Promo / info cepat -->
+  <ion-list>
+    <ion-item lines="inset" color="dark">
+      <ion-icon name="pricetag-outline" slot="start" color="warning"></ion-icon>
+      <ion-label class="gold-text">Promo ganti oli 10%</ion-label>
+    </ion-item>
+    <ion-item lines="inset" color="dark">
+      <ion-icon name="information-circle-outline" slot="start" color="warning"></ion-icon>
+      <ion-label class="gold-text">Cek kampas rem gratis</ion-label>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

@@ -1,0 +1,22 @@
+.auth-card {
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+ion-item {
+  --background: #2c2c2c;
+  --color: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.auth-button {
+  margin-top: 16px;
+  background-color: #ffd700;
+  color: #000;
+  font-weight: bold;
+  border-radius: 10px;
+}

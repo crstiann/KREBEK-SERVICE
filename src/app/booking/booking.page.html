@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title class="brand-title">Form Booking Servis</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="auth-card">
+    <ion-card-header>
+      <ion-card-title>Booking Servis</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <!-- Jenis Servis -->
+      <ion-item>
+        <ion-label>Jenis Servis</ion-label>
+        <ion-select [(ngModel)]="service">
+          <ion-select-option *ngFor="let s of Object.keys(serviceOptions)" [value]="s">{{ s }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Detail Servis -->
+      <ion-item *ngIf="service">
+        <ion-label>Detail Servis</ion-label>
+        <ion-select [(ngModel)]="detail_service">
+          <ion-select-option *ngFor="let d of serviceOptions[service]" [value]="d">{{ d }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Notes -->
+      <ion-item>
+      <ion-label position="floating">Catatan Tambahan</ion-label>
+      <ion-textarea [(ngModel)]="notes" placeholder="Contoh: sekalian ganti oli mesin"></ion-textarea>
+      </ion-item>
+
+
+      <!-- Merk Motor -->
+      <ion-item>
+        <ion-label position="floating">Merk Motor</ion-label>
+        <ion-input [(ngModel)]="merk"></ion-input>
+      </ion-item>
+
+      <!-- Nomor Polisi -->
+      <ion-item>
+        <ion-label position="floating">Nomor Polisi</ion-label>
+        <ion-input [(ngModel)]="nopol"></ion-input>
+      </ion-item>
+
+      <!-- Nama -->
+      <ion-item>
+        <ion-label position="floating">Nama</ion-label>
+        <ion-input [(ngModel)]="nama"></ion-input>
+      </ion-item>
+
+      <!-- Alamat -->
+      <ion-item>
+        <ion-label position="floating">Alamat</ion-label>
+        <ion-textarea [(ngModel)]="alamat"></ion-textarea>
+      </ion-item>
+
+      <!-- No HP -->
+      <ion-item>
+        <ion-label position="floating">No HP</ion-label>
+        <ion-input [(ngModel)]="nohp" type="tel"></ion-input>
+      </ion-item>
+
+      <!-- Jadwal Booking -->
+      <ion-datetime presentation="date-time" [(ngModel)]="jadwal" [min]="minDateTime" [max]="maxDateTime"
+        display-format="YYYY-MM-DD HH:mm" hour-cycle="h23" minute-values="0,15,30,45,50">
+      </ion-datetime>
+  
+      <ion-text color="danger" *ngIf="jadwal && !isValidBookingTime(jadwal)">
+        <p>Jam booking harus antara 09:00 - 17:00</p>
+        </ion-text>
+
+
+      <!-- Tombol Kirim -->
+      <ion-button expand="block" color="warning" (click)="submitBooking()">Kirim Booking</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

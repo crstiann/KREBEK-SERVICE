@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title class="brand-title">🔧 KREBEK SERVICE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid class="ion-text-center">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6" size-lg="4">
+        <div class="auth-card">
+
+          <ion-title class="gold-text">Register</ion-title>
+
+          <ion-item class="input-dark">
+            <ion-label position="floating">Nama</ion-label>
+            <ion-input [(ngModel)]="name"></ion-input>
+          </ion-item>
+
+          <ion-item class="input-dark">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input [(ngModel)]="email"></ion-input>
+          </ion-item>
+
+          <ion-item class="input-dark">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input
+    [(ngModel)]="password"
+    [type]="showpassword ? 'text' : 'password'"
+    required></ion-input>
+  <ion-icon
+    slot="end"
+    [name]="showpassword ? 'eye-off' : 'eye'"
+    (click)="togglePasswordVisibility()"
+    style="cursor: pointer;"></ion-icon>
+          </ion-item>
+
+          <ion-item class="input-dark">
+            <ion-label position="floating">No HP</ion-label>
+            <ion-input [(ngModel)]="phone"></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" class="auth-button" (click)="register()">Daftar</ion-button>
+          <ion-button fill="clear" color="light" routerLink="/login">Sudah punya akun?</ion-button>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

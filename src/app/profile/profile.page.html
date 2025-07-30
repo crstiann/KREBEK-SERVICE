@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Selamat datang, {{ userRole === 'admin' ? 'Admin' : nama }}</ion-card-title>
+      <ion-card-subtitle>Role: {{ userRole }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Fitur untuk Admin -->
+  <div *ngIf="userRole === 'admin'">
+    <ion-list>
+      <ion-item button (click)="goToKelolaBooking()">
+        <ion-label>Kelola Booking</ion-label>
+      </ion-item>
+      <ion-item button (click)="goToKelolaLayanan()">
+        <ion-label>Kelola Layanan</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Fitur untuk User -->
+  <div *ngIf="userRole === 'user'">
+    <ion-list>
+      <ion-item button (click)="goToRiwayatBooking()">
+        <ion-label>Riwayat Booking</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-button expand="block" color="medium" (click)="logout()">
+  <ion-icon slot="start" name="log-out-outline"></ion-icon>
+  Logout
+</ion-button>
+

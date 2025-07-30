@@ -1,0 +1,88 @@
+.brand-title {
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ffd700;
+}
+
+.hero-card img {
+  border-radius: 10px;
+  max-height: 160px;
+  object-fit: cover;
+}
+
+.service-grid {
+  margin-top: 16px;
+}
+
+.service-card {
+  text-align: center;
+  background: #1f1f1f;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 12px;
+}
+
+.service-icon {
+  font-size: 32px;
+  color: #ffd700;
+  margin-bottom: 6px;
+}
+
+.gold-text {
+  color: #ffd700;
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.2);
+  }
+}
+
+.auth-card {
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.input-dark ion-input,
+.input-dark ion-textarea {
+  color: #fff;
+}
+
+.auth-button {
+  background-color: #ffd700;
+  color: #000;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.auth-button:hover {
+  filter: brightness(1.1);
+}
+
+.center-logo-card {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.logo-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 150%;
+  border: 2px solid #ffd700;
+  object-fit: cover;
+}

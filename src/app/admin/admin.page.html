@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Admin Panel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Tombol Tab Ganti Tampilan -->
+  <ion-segment [(ngModel)]="currentView">
+    <ion-segment-button value="layanan">Kelola Layanan</ion-segment-button>
+    <ion-segment-button value="booking">Kelola Booking</ion-segment-button>
+  </ion-segment>
+
+  <!-- ========================= LAYANAN ========================= -->
+  <div *ngIf="currentView === 'layanan'">
+    <ion-item>
+      <ion-input [(ngModel)]="newLayanan" placeholder="Tambah layanan baru"></ion-input>
+      <ion-button (click)="tambahLayanan()" slot="end" color="success">Tambah</ion-button>
+    </ion-item>
+
+    <ion-list>
+      <ion-item *ngFor="let layanan of layananList">
+        {{ layanan.nama }}
+        <ion-button slot="end" color="danger" (click)="hapusLayanan(layanan.id)">Hapus</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+ <!-- ========================= BOOKING ========================= -->
+<div *ngIf="currentView === 'booking'">
+  <ion-card *ngFor="let booking of bookingList">
+    <ion-card-header>
+      <ion-card-title>{{ booking.nama }} - {{ booking.service }} ({{ booking.detail_service }})</ion-card-title>
+      <ion-card-subtitle>{{ booking.jadwal }} | {{ booking.status }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Merk:</strong> {{ booking.merk }}</p>
+      <p><strong>No Polisi:</strong> {{ booking.nopol }}</p>
+      <p><strong>Alamat:</strong> {{ booking.alamat }}</p>
+      <p><strong>HP:</strong> {{ booking.nohp }}</p>
+      <p *ngIf="booking.notes"><strong>Catatan:</strong> {{ booking.notes }}</p>
+
+
+      <!-- <ion-select interface="popover" [(ngModel)]="booking.status" (ionChange)="ubahStatus(booking.id, booking.status)">
+        <ion-select-option value="Menunggu">Menunggu</ion-select-option>
+        <ion-select-option value="Diproses">Diproses</ion-select-option>
+        <ion-select-option value="Selesai">Selesai</ion-select-option>
+        <ion-select-option value="Dibatalkan">Dibatalkan</ion-select-option>
+      </ion-select> -->
+
+      <ion-button color="danger" expand="block" (click)="hapusBooking(booking.id)">
+        Hapus Booking
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+
+</ion-content>

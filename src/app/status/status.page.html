@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Status Booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let item of bookings">
+    <ion-card-header>
+      <ion-card-title>{{ item.service }} - {{ item.detail_service }}</ion-card-title>
+      <ion-card-subtitle>{{ item.jadwal }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Nama:</strong> {{ item.nama }}</p>
+      <p><strong>Status:</strong> 
+        <ion-badge [color]="getColor(item.status)">{{ item.status }}</ion-badge>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
